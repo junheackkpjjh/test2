@@ -8,7 +8,22 @@
 </head>
 <body>
   <div id="game">
+    <div id="score">0</div>
+    <div id="lives" aria-label="목숨">
+      <span class="heart active">♥</span>
+      <span class="heart active">♥</span>
+      <span class="heart active">♥</span>
+    </div>
     <div class="ground"></div>
+    <div id="overlay" aria-hidden="true">
+      <div class="message">
+        게임 오버<br />
+        점수: <span id="final-score">0</span>
+        <div style="margin-top:16px;">
+          <button id="restart" type="button">다시하기</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>

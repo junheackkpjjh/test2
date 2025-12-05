@@ -13,6 +13,7 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+.#score {}
 .ground {
   position: absolute;
   left: 0;
@@ -30,4 +31,128 @@ body {
   box-shadow: 0 8px 14px rgba(0,0,0,0.45);
   transform: translateY(0);
   will-change: transform;
+}
+.trail {
+  position: absolute;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 1;
+  transition: opacity 0.2s linear;
+}
+#score {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+  z-index: 30;
+}
+#lives {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 30;
+}
+.heart {
+  font-size: 22px;
+  margin-left: 6px;
+  color: #4a4f57;
+}
+.heart.active { color: #ff3b3b; }
+.fruit-half {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: 0 8px 14px rgba(0,0,0,0.45);
+  pointer-events: none;
+  z-index: 25;
+  opacity: 1;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+.fruit-half.left {
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+.fruit-half.right {
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+#overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.45);
+  z-index: 40;
+}
+#overlay .message {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+}
+#overlay button {
+  background: #1f6feb;
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+#overlay button:hover { filter: brightness(1.1); }
+
+.bomb {
+  position: absolute;
+  bottom: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: 0 8px 14px rgba(0,0,0,0.45);
+  transform: translateY(0);
+  will-change: transform;
+  background:
+    repeating-linear-gradient(45deg, #333 0 12px, #d6d600 12px 24px);
+}
+.bomb-half {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: 0 8px 14px rgba(0,0,0,0.45);
+  pointer-events: none;
+  z-index: 25;
+  opacity: 1;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  background:
+    repeating-linear-gradient(45deg, #333 0 12px, #d6d600 12px 24px);
+}
+.bomb-half.left { clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); }
+.bomb-half.right { clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%); }
+.explosion {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffd000 0%, #ff7a00 45%, rgba(255,0,0,0.6) 65%, transparent 70%);
+  pointer-events: none;
+  z-index: 36;
+  opacity: 0.95;
+  transform: scale(0.3);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+.spark {
+  position: absolute;
+  left: 9px;
+  top: 9px;
+  width: 3px;
+  height: 16px;
+  background: #ffd000;
+  border-radius: 2px;
+  transform-origin: 50% 100%;
+  opacity: 0.95;
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
